@@ -1,12 +1,10 @@
-import { Inter } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { useEffect } from "react";
 import { getCountry } from "@/store/apps/country";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function City() {
   // ** Redux
   const dispatch = useDispatch<AppDispatch>();
 
@@ -22,18 +20,24 @@ export default function Home() {
 
   return (
     <>
+      <h1>Cities</h1>
+      <hr />
       {loading ? (
         <h1>Loading..</h1>
       ) : (
         <>
-          <h1>Hello, Next.js!</h1>
-          <div>
+          <div className="flex flex-wrap m-2">
             {data.length > 0 &&
               data[0]?.city.map((k: any, index: any) => {
                 return (
-                  <>
-                    <div key={index}>{k.cityName}</div>
-                  </>
+                  <div key={index} className="w-1/3">
+                    <Link
+                      className="border px-1 rounded-full"
+                      href={`/city/${k.id}`}
+                    >
+                      {k.cityName}
+                    </Link>
+                  </div>
                 );
               })}
           </div>
