@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const getCountry = createAsyncThunk('country', async() => {
     const response = await axios.get('http://localhost:3050/country')
-
     return response.data
 })
 

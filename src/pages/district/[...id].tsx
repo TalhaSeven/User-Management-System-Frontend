@@ -23,7 +23,7 @@ const District = (props: Props) => {
 
   useEffect(() => {
     if (data.length === 0) dispatch(getCountry());
-  },[dispatch, data.length]);
+  }, [dispatch, data.length]);
 
   useEffect(() => {
     setCityId(parseInt(router.query.id[0]));
@@ -32,7 +32,21 @@ const District = (props: Props) => {
 
   return (
     <>
-      <h1>City - District</h1>
+      <Link href="/" className="mx-2">
+        Home
+      </Link>
+      <Link href="/city" className="mx-2">
+        Cities
+      </Link>
+      <Link href="/address" className="mx-2">
+        Address
+      </Link>
+      <h1
+        className="text-center text-8xl text-transparent 
+        bg-clip-text bg-gradient-to-b from-[#051F91] from-25% to-[#6DDB17]"
+      >
+        City - District
+      </h1>
       <span className="border px-1 rounded-full">
         {data[0]?.city.find((k: any) => k.id === cityId)?.cityName}
       </span>

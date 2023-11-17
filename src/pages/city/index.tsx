@@ -20,7 +20,21 @@ export default function City() {
 
   return (
     <>
-      <h1>Cities</h1>
+      <Link href="/" className="mx-2">
+        Home
+      </Link>
+      <Link href="/city" className="mx-2">
+        Cities
+      </Link>
+      <Link href="/address" className="mx-2">
+        Address
+      </Link>
+      <h1
+        className="text-center text-8xl text-transparent 
+        bg-clip-text bg-gradient-to-b from-[#051F91] from-25% to-[#6DDB17]"
+      >
+        Cities
+      </h1>
       <hr />
       {loading ? (
         <h1>Loading..</h1>

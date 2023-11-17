@@ -1,44 +1,14 @@
-import { Inter } from "next/font/google";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store";
-import { useEffect } from "react";
-import { getCountry } from "@/store/apps/country";
-
-const inter = Inter({ subsets: ["latin"] });
+import Link from "next/link";
 
 export default function Home() {
-  // ** Redux
-  const dispatch = useDispatch<AppDispatch>();
-
-  // ** Selector
-  const loading: boolean = useSelector(
-    (state: RootState) => state.country.loading
-  );
-  const data: any = useSelector((state: RootState) => state.country.data);
-
-  useEffect(() => {
-    dispatch(getCountry());
-  }, [dispatch]);
 
   return (
     <>
-      {loading ? (
-        <h1>Loading..</h1>
-      ) : (
-        <>
-          <h1>Hello, Next.js!</h1>
-          <div>
-            {data.length > 0 &&
-              data[0]?.city.map((k: any, index: any) => {
-                return (
-                  <>
-                    <div key={index}>{k.cityName}</div>
-                  </>
-                );
-              })}
-          </div>
-        </>
-      )}
+        <Link href="/" className="mx-2">Home</Link>
+        <Link href="/city" className="mx-2">Cities</Link>
+        <Link href="/address" className="mx-2">Address</Link>
+        <h1 className="text-center text-8xl text-transparent 
+        bg-clip-text bg-gradient-to-b from-[#051F91] from-25% to-[#6DDB17]">Welcome User Management System</h1>
     </>
   );
 }
