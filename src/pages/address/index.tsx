@@ -61,18 +61,27 @@ const Address = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   // ** Selector
-  const data: any = useSelector((state: RootState) => state.country.data);
-  const addressLoading: boolean = useSelector((state: RootState) => state.address.loading);
+  const { data, loading } = useSelector((state: RootState) => state.country);
   const dataUser: any = useSelector((state: RootState) => state.user.data);
+  const addressLoading: boolean = useSelector((state: RootState) => state.address.loading);
+  const userLoading: boolean = useSelector((state: RootState) => state.user.loading);
   const [city, setCity] = useState<any[]>();
   const [district, setDistrict] = useState<any[]>();
   const [town, setTown] = useState<any[]>();
   const [location, setLocation] = useState<any>("");
 
-  useEffect(() => {
-    dispatch(getCountry());
-    dispatch(getUser());
-  }, [dispatch]);
+  type FormValues = {
+    addressType: string;
+    addressLine: string;
+    street: string;
+    post_code: string;
+    location: string;
+    userId: number;
+    countryId: number;
+    cityId: number;
+    districtId: number;
+    townId: number;
+  };
 
   const {
     register,
@@ -89,6 +98,11 @@ const Address = () => {
     dispatch(setAddress(payload));
     reset(defaultValues);
   };
+
+  useEffect(() => {
+    if (!userLoading && dataUser.length === 0) dispatch(getUser());
+    if (!loading && data.length === 0) dispatch(getCountry());
+  }, [dispatch, loading, data.length]);
 
   useEffect(() => {
     console.log(errors);
@@ -228,9 +242,7 @@ const Address = () => {
                       className="mt-1"
                       onChange={(e: ChangeEvent<HTMLSelectElement>) => {
                         const countryId = parseInt(e.target.value);
-                        const country = data.find(
-                          (k: any) => k.id === countryId
-                        );
+                        const country = data.find((k: any) => k.id === countryId);
                         const sortedCities = [...(country?.city || [])].sort(
                           (a, b) => a.cityName.localeCompare(b.cityName)
                         );

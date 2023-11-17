@@ -1,40 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# User Management System
 
-## Getting Started
+## Introduction
+This project is a User Management System built using Next.js and Redux. It provides functionalities for managing users, addresses, and country-related data.
 
-First, run the development server:
+## Features
+- **User Management**: Create, view, update, and delete users.
+- **Address Management**: Add and manage addresses for users.
+- **Country and City Information**: Display and manage country and city data.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies
+- Next.js
+- Redux with Redux Toolkit
+- React Hook Form
+- Yup for validation
+- Tailwind CSS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Components
+- **Home**: The landing page of the application.
+- **Cities**: View and manage city information.
+- **Address**: Add and manage addresses for users.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Redux Store Structure
+The Redux store is configured with the following slices:
+- `country`: Manages country data.
+- `user`: Handles user-related operations.
+- `address`: Manages address information.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Validation
+Forms are validated using Yup schemas to ensure data integrity.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+# Kullanıcı Yönetim Sistemi
 
-To learn more about Next.js, take a look at the following resources:
+## Giriş
+Bu proje, Next.js ve Redux kullanılarak oluşturulmuş bir Kullanıcı Yönetim Sistemidir. Kullanıcılara, adresleri ve ülke ile ilgili verileri yönetme işlevleri sağlar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Özellikler
+- **Kullanıcı Yönetimi**: Kullanıcıları oluşturma, görüntüleme, güncelleme ve silme.
+- **Adres Yönetimi**: Kullanıcılar için adres ekleme ve yönetme.
+- **Ülke ve Şehir Bilgileri**: Ülke ve şehir verilerini görüntüleme ve yönetme.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Teknolojiler
+- Next.js
+- Redux ve Redux Toolkit
+- React Hook Form
+- Yup ile doğrulama
+- Tailwind CSS
 
-## Deploy on Vercel
+## Bileşenler
+- **Ana Sayfa**: Uygulamanın ana sayfası.
+- **Şehirler**: Şehir bilgilerini görüntüleme ve yönetme.
+- **Adres**: Kullanıcılar için adres ekleme ve yönetme.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Redux Store Yapısı
+Redux, aşağıdaki bölümler ile yapılandırılmıştır:
+- `country`: Ülke verilerini yönetir.
+- `user`: Kullanıcı ile ilgili işlemleri ele alır.
+- `address`: Adres bilgilerini yönetir.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Doğrulama
+Formlar, veri bütünlüğünü sağlamak için Yup şemaları kullanılarak doğrulanır.
